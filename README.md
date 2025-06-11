@@ -1,6 +1,6 @@
 # wdd430-group-project
 Group Project: Handcrafted Haven
-Vercel link: 
+NEW Vercel link: https://group-project2-five.vercel.app/
 
 Team 16:
 
