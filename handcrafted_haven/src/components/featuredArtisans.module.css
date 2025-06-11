@@ -1,0 +1,60 @@
+/* src/components/featuredArtisans.module.css */
+.featuredArtisans {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #5f5449;
+  margin-bottom: 2rem;
+  font-family: var(--font-merriweather);
+}
+
+.artisansGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.artisanCard {
+  background-color: #ebfcfb;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.artisanName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  padding: 1rem;
+  text-align: center;
+}
+
+.viewProfile {
+  display: block;
+  background-color: #9b6a6c;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.viewProfile:hover {
+  background-color: #5f5449;
+}

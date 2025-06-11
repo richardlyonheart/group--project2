@@ -1,0 +1,43 @@
+/* src/app/main.module.css */
+.hero {
+  background-color: #cedfd9; 
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5f5449; 
+  margin-bottom: 1rem;
+  font-family: var(--font-merriweather); 
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: #9b6a6c; 
+  margin-bottom: 2rem;
+}
+
+.heroButton {
+  background-color: #9b6a6c; 
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: var(--font-merriweather);
+}
+
+.heroButton:hover {
+  background-color: #5f5449;
+}

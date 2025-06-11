@@ -1,0 +1,45 @@
+/* src/components/aboutUs.module.css */
+.aboutUs {
+  display: flex;
+  padding: 4rem 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.image {
+  border-radius: 8px;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #5f5449;
+  margin-bottom: 1rem;
+  font-family: var(--font-merriweather);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .aboutUs {
+    flex-direction: column;
+  }
+
+  .imageContainer {
+    width: 100%;
+  }
+}

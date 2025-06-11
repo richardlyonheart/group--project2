@@ -1,0 +1,33 @@
+/* src/components/header.module.css */
+.header {
+  background-color: #ebfcfb; 
+  padding: 1rem 2rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.right {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  color: #5f5449;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
