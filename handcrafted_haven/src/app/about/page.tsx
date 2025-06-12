@@ -7,7 +7,6 @@ export default async function Page() {
     return(
         <>
         <Header/>
-        <h1>About Us page</h1>
         <AboutUs/>
         <Footer/>
         </>

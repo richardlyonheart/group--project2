@@ -1,13 +1,15 @@
+"use client"
+
 import Footer from "@/components/footer"
 import Header from "@/components/header"
+import ContactForm from "@/components/contactForm"
 
-export default async function Home() {
+export default async function ContactPage() {
     return(
         <>
         <Header/>
-        <h1>Contact us</h1>
+        <ContactForm />
         <Footer/>
-        
         </>
     )
 }
