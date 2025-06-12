@@ -35,7 +35,7 @@ const mockSellerData = {
 };
 
 export default function SellerProfilePage({ params }: { params: { sellerId: string } }) {
-  const { sellerId } = params;
+  const { sellerId } = params as {sellerId: string};
 
   // En un escenario real, aquí harías una petición a tu API para obtener los datos del vendedor:
   // const response = await fetch(`/api/sellers/${sellerId}`);
