@@ -33,8 +33,8 @@ const mockSellerData = {
     ],
   },
 };
-
-export default function SellerProfilePage({ params }: { params: { sellerId: string } }) {
+// @ts-ignore
+export default function SellerProfilePage({ params }: SellerProfilePageProps) {
   // @ts-ignore
   const { sellerId } = params;
 
