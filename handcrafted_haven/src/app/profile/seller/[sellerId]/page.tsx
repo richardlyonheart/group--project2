@@ -9,6 +9,7 @@ interface SellerProfilePageProps {
   };
 }
 
+
 // SIMULACIÓN DE DATOS DE VENDEDOR Y PRODUCTOS (REEMPLAZAR CON FETCH REAL DE LA DB)
 const mockSellerData = {
   '5': { // Usa el ID de un usuario vendedor que hayas registrado
@@ -33,11 +34,11 @@ const mockSellerData = {
     ],
   },
 };
-// @ts-ignore
-export default function SellerProfilePage({ params }: SellerProfilePageProps) {
-  // @ts-ignore
-  const { sellerId } = params;
 
+export default async function SellerProfilePage({ params }: { params: Promise<{ sellerId: string }> }) {
+  const resolvedParams = await params; // Await the params
+  const { sellerId } = resolvedParams;
+  
   // En un escenario real, aquí harías una petición a tu API para obtener los datos del vendedor:
   // const response = await fetch(`/api/sellers/${sellerId}`);
   // if (!response.ok) {
