@@ -2,7 +2,9 @@
 import type { Metadata } from "next";
 import { Merriweather } from "next/font/google";
 import "./globals.css";
-// import Header from "../components/header";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { AuthProvider } from '../context/authContext';
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -23,7 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={merriweather.variable}>
-      <body>{children}</body>
+      <body>
+        <AuthProvider> {/* Envuelve el contenido con AuthProvider */}
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AuthProvider>
+      </body>
     </html>
   );
 }

@@ -8,7 +8,6 @@ import mainStyles from './main.module.css';
 export default function Home() {
   return (
     <>
-      <Header />
       <main className={mainStyles.hero}>
         <div className={mainStyles.heroContent}>
           <h1 className={mainStyles.heroTitle}>Handcrafted Haven</h1>
@@ -19,7 +18,6 @@ export default function Home() {
       </main>
       <AboutUs />
       <FeaturedArtisans />
-      <Footer />
     </>
   );
 }

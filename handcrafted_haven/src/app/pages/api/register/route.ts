@@ -1,6 +1,6 @@
 // src/app/api/register/route.ts
 import { NextResponse } from 'next/server';
-import  pool  from '@/app/lib/db'
+import pool from '@/app/lib/db'
 import bcrypt from 'bcrypt';
 export const runtime = 'nodejs';
 
@@ -13,34 +13,32 @@ export async function POST(request: Request) {
     }
     if (!['buyer', 'seller'].includes(user_choice)) {
       return NextResponse.json({ message: 'Invalid role selection' }, { status: 400 });
-}
+    }
 
-    // This is where the logic to connect to the database would go
-    // and check if the email already exists. We'll ignore it for now.
     const checkUserQuery = 'SELECT * FROM users WHERE email = $1';
     const userCheckResult = await pool.query(checkUserQuery, [email]);
 
     if (userCheckResult.rowCount > 0) {
       return NextResponse.json(
         { message: 'Email already in use' },
-        { status: 409 } // 409 Conflict is a good status for duplicate values
+        { status: 409 }
       );
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Here would go the logic to save the new user in the database
     const insertUserQuery = `
       INSERT INTO users (name, email, password, user_choice)
       VALUES ($1, $2, $3, $4)
       RETURNING id, name, email, user_choice
     `;
     const result = await pool.query(insertUserQuery, [name, email, hashedPassword, user_choice]);
-    const newUser = result.rows[0];
+    const newUser = result.rows[0]; // newUser ahora incluye el ID
 
     console.log('Usuario registrado:', { name, email, hashedPassword, user_choice });
 
-    return NextResponse.json({ message: 'User registered successfully' }, { status: 201 });
+    // Puedes devolver el nuevo usuario (incluyendo su ID) si es útil para el front-end
+    return NextResponse.json({ message: 'User registered successfully', user: newUser }, { status: 201 });
   } catch (error) {
     console.error('Error registering user:', error);
     return new NextResponse('Something went wrong', { status: 500 });

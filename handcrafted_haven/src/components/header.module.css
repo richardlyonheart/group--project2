@@ -31,3 +31,18 @@
 .link:hover {
   text-decoration: underline;
 }
+
+.linkButton {
+  background: none;
+  border: none;
+  color: #5f5449; 
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0; 
+  font-size: 1rem; 
+  transition: text-decoration 0.2s ease;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
