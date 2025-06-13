@@ -87,7 +87,7 @@ export default function SellerDashboardPage() {
 
       <h2 className={styles.productsTitle}>Your Products</h2>
       <div className={styles.actionButtons}>
-        <Link href="/seller/add-product" className={styles.addProductButton}>
+        <Link href="../profile/seller/add-product" className={styles.addProductButton}>
           Add New Product
         </Link>
         {/* El botón de eliminar producto general se implementaría después de la selección */}
