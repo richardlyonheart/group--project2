@@ -36,14 +36,14 @@ export default function Header() {
         <div className={styles.right}>
           {user ? (
             <>
-              {/* Si es vendedor, ir a su dashboard. Si es comprador, ir a un perfil de comprador (o home por ahora) */}
+              {/* Si es vendedor, ir a su dashboard. Si es comprador, ir al dashboard de comprador */}
               {user.user_choice === 'seller' ? (
-                <Link href="/dashboard/seller" className={styles.link}> {/* Nuevo enlace al dashboard del vendedor */}
+                <Link href="/dashboard/seller" className={styles.link}>
                   Dashboard ({user.name})
                 </Link>
               ) : (
-                <Link href={`/profile/buyer/${user.id}`} className={styles.link}> {/* Link para comprador */}
-                  Profile ({user.name})
+                <Link href="/dashboard/buyer" className={styles.link}>
+                  Dashboard ({user.name})
                 </Link>
               )}
 
