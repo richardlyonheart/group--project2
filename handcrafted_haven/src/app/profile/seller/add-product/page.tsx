@@ -21,7 +21,6 @@ export default function AddProductPage() {
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
 
-  // Redirigir si no es un vendedor o no está logueado
   if (isLoading) {
     return <div className={styles.loadingContainer}>Loading authentication...</div>;
   }
@@ -103,7 +102,7 @@ export default function AddProductPage() {
 
         <div className={styles.inputGroup}>
           <label htmlFor="imageUrl" className={styles.label}>Image URL:</label>
-          <input type="url" id="imageUrl" name="imageUrl" value={formData.imageUrl} onChange={handleChange} required className={styles.input} />
+          <input type="url" id="imageUrl" name="imageUrl" value={formData.imageUrl} onChange={handleChange} className={styles.input} />
         </div>
 
         <div className={styles.inputGroup}>

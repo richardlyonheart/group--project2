@@ -1,10 +1,10 @@
 // src/app/api/logout/route.ts
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers'; // Para manipular cookies en Server Components/Routes
+import { cookies } from 'next/headers'; 
 
 export async function POST(request: Request) {
   try {
-    (await cookies()).delete('sessionToken'); // Borra la cookie de sesión (usaremos 'sessionToken' como nombre)
+    (await cookies()).delete('sessionToken'); 
     return NextResponse.json({ message: 'Logged out successfully' }, { status: 200 });
   } catch (error) {
     console.error('Error during logout:', error);

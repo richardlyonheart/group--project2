@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3rem 2rem;
-  max-width: 600px; /* Ancho para el formulario de producto */
+  max-width: 600px; 
   margin: 2rem auto;
   border: 1px solid #cedfd9;
   border-radius: 8px;

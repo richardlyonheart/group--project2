@@ -22,7 +22,6 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.left}>
-          {/* Logo a futuro aquí */}
           <Link href="/" className={styles.link}>Home</Link>
           <Link href="/about" className={styles.link}>About</Link>
           <Link href="/artisans" className={styles.link}>Artisans</Link>
@@ -36,7 +35,6 @@ export default function Header() {
         <div className={styles.right}>
           {user ? (
             <>
-              {/* Si es vendedor, ir a su dashboard. Si es comprador, ir al dashboard de comprador */}
               {user.user_choice === 'seller' ? (
                 <Link href="/dashboard/seller" className={styles.link}>
                   Dashboard ({user.name})

@@ -33,11 +33,11 @@ export async function POST(request: Request) {
       RETURNING id, name, email, user_choice
     `;
     const result = await pool.query(insertUserQuery, [name, email, hashedPassword, user_choice]);
-    const newUser = result.rows[0]; // newUser ahora incluye el ID
+    const newUser = result.rows[0]; 
 
     console.log('Usuario registrado:', { name, email, hashedPassword, user_choice });
 
-    // Puedes devolver el nuevo usuario (incluyendo su ID) si es útil para el front-end
+    
     return NextResponse.json({ message: 'User registered successfully', user: newUser }, { status: 201 });
   } catch (error) {
     console.error('Error registering user:', error);

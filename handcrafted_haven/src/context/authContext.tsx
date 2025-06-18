@@ -9,35 +9,33 @@ interface User {
   email: string;
   name: string;
   user_choice?: string;
-  bio?: string; // Propiedad opcional
-  profile_picture_url?: string; // Propiedad opcional
+  bio?: string; 
+  profile_picture_url?: string; 
 }
 
 interface AuthContextType {
   user: User | null;
   login: (userData: User) => void;
   logout: () => void;
-  isLoading: boolean; // Para saber si se está cargando el estado inicial
+  isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true); // Empezamos cargando
+  const [isLoading, setIsLoading] = useState(true); 
   const router = useRouter();
 
-  // Función para verificar el estado de la sesión al cargar la app
+  
   useEffect(() => {
     const checkSession = async () => {
       try {
-        // En un escenario real, harías una petición para validar la sesión
-        // por ejemplo, a /api/session para ver si la cookie es válida.
-        // Por ahora, simularemos la carga.
-        const response = await fetch('/api/session'); // Creamos esta API route después
+        
+        const response = await fetch('/api/session'); 
         if (response.ok) {
           const userData = await response.json();
-          setUser(userData.user); // Asume que la API devuelve { user: { email, name, user_choice } }
+          setUser(userData.user); 
         }
       } catch (error) {
         console.error('Error checking session:', error);
@@ -47,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     checkSession();
-  }, []); // Se ejecuta una sola vez al montar el componente
+  }, []); 
 
   const login = (userData: User) => {
     setUser(userData);
@@ -55,12 +53,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      await fetch('/api/logout', { method: 'POST' }); // Llamada a la API de logout
+      await fetch('/api/logout', { method: 'POST' }); 
     } catch (error) {
       console.error('Error during logout API call:', error);
     } finally {
-      setUser(null); // Limpiamos el usuario en el estado
-      router.push('/login'); // Redirigimos al login o a la home
+      setUser(null); 
+      router.push('/login'); 
     }
   };
 

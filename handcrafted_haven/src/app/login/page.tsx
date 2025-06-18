@@ -4,21 +4,21 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './login.module.css';
-import { useAuth } from '@/context/authContext'; // <-- Importa useAuth
+import { useAuth } from '@/context/authContext';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { login } = useAuth(); // <-- Obtén la función login del contexto
+  const { login } = useAuth(); 
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError('');
 
     try {
-      const response = await fetch('/pages/api/login', { // Asegúrate de que esta ruta sea la correcta (pages/api o api)
+      const response = await fetch('/pages/api/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,9 +30,9 @@ export default function LoginPage() {
 
       if (response.ok) {
         console.log('Login successful:', data);
-        // <-- ¡AQUÍ ESTÁ EL CAMBIO CLAVE!
-        login(data.user); // Llama a la función login del contexto con los datos del usuario
-        router.push('/'); // Redirige a la página principal
+        
+        login(data.user); 
+        router.push('/'); 
       } else {
         setError(data?.message || 'Login failed');
       }

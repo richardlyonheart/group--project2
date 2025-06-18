@@ -3,7 +3,7 @@
   max-width: 1000px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ebfcfb; /* Fondo claro de tu paleta */
+  background-color: #ebfcfb; 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -12,13 +12,13 @@
   text-align: center;
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid #cedfd9; /* Separador sutil */
+  border-bottom: 1px solid #cedfd9; 
 }
 
 .profilePicture {
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid #b09398; /* Borde con un color de tu paleta */
+  border: 4px solid #b09398; 
   margin-bottom: 1.5rem;
 }
 
@@ -70,7 +70,7 @@
 
 .productImage {
   width: 100%;
-  height: 180px; /* Altura fija para las imágenes de producto */
+  height: 180px; 
   object-fit: cover;
 }
 
@@ -97,6 +97,6 @@
     font-size: 1.8rem;
   }
   .productsGrid {
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    grid-template-columns: 1fr; 
   }
 }

@@ -10,12 +10,9 @@ export async function GET(request: Request) {
     const sessionToken = (await cookies()).get('sessionToken')?.value;
 
     if (!sessionToken) {
-      // No hay token de sesión, no hay usuario logueado
       return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
 
-    // Primero, obtener el ID del usuario a partir del sessionToken (que actualmente es el email)
-    // En una aplicación real con JWT, el token contendría el user ID.
     const userQuery = "SELECT id, user_choice FROM users WHERE email = $1";
     const userResult = await pool.query(userQuery, [sessionToken]);
     const user = userResult.rows[0];
@@ -24,7 +21,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: 'Forbidden: Not a seller or user not found' }, { status: 403 });
     }
 
-    // Ahora que tenemos el seller_id, obtenemos sus productos
+    
     const productsQuery = `
       SELECT id, name, description, price, image_url, category, stock
       FROM products
@@ -56,7 +53,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Forbidden: Not a seller or user not found' }, { status: 403 });
     }
 
-    const body = await request.json(); // Parse JSON from request body
+    const body = await request.json(); 
     const { name, description, price, imageUrl, category, stock } = body;
 
     const insertQuery = `

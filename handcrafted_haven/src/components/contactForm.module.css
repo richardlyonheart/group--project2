@@ -96,7 +96,7 @@
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-  .formContainer { /* Renombrada de .container */
+  .formContainer { 
     padding: 2rem 1rem;
     margin: 1rem auto;
   }

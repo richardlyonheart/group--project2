@@ -1,6 +1,6 @@
 // src/app/profile/seller/[sellerId]/page.tsx
-import { notFound } from 'next/navigation'; // Para manejar perfiles no encontrados
-import styles from './sellerProfile.module.css'; // Crear este CSS
+import { notFound } from 'next/navigation';
+import styles from './sellerProfile.module.css'; 
 import Image from 'next/image';
 
 interface SellerProfilePageProps {
@@ -9,20 +9,18 @@ interface SellerProfilePageProps {
   };
 }
 
-
-// SIMULACIÓN DE DATOS DE VENDEDOR Y PRODUCTOS (REEMPLAZAR CON FETCH REAL DE LA DB)
 const mockSellerData = {
-  '5': { // Usa el ID de un usuario vendedor que hayas registrado
+  '5': { 
     id: '1',
     name: 'Artisan A',
     bio: 'Passionate artisan specializing in handmade jewelry using recycled materials. Each piece tells a unique story.',
-    profilePicture: '/images/placeholder-artisan.png', // Usa una imagen placeholder
+    profilePicture: '/images/placeholder-artisan.png',
     products: [
       { id: 'p1', name: 'Recycled silver necklace', imageUrl: '/images/placeholder-product.png', price: '75.00' },
       { id: 'p2', name: 'Forged copper earrings', imageUrl: '/images/placeholder-product.png', price: '45.00' },
     ],
   },
-  '2': { // Otro vendedor de ejemplo
+  '2': { 
     id: '2',
     name: 'Ceramista B',
     bio: 'Creando piezas de cerámica utilitaria y decorativa, inspiradas en la naturaleza y la cultura local. Toda mi cerámica es apta para alimentos.',
@@ -36,21 +34,13 @@ const mockSellerData = {
 };
 
 export default async function SellerProfilePage({ params }: { params: Promise<{ sellerId: string }> }) {
-  const resolvedParams = await params; // Await the params
+  const resolvedParams = await params; 
   const { sellerId } = resolvedParams;
   
-  // En un escenario real, aquí harías una petición a tu API para obtener los datos del vendedor:
-  // const response = await fetch(`/api/sellers/${sellerId}`);
-  // if (!response.ok) {
-  //   notFound(); // Si el vendedor no existe, muestra la página 404
-  // }
-  // const sellerData = await response.json();
-
-  // Usando datos de prueba por ahora
   const sellerData = mockSellerData[sellerId as keyof typeof mockSellerData];
 
   if (!sellerData) {
-    notFound(); // Si el ID no coincide con los datos de prueba
+    notFound(); 
   }
 
   return (
@@ -80,7 +70,6 @@ export default async function SellerProfilePage({ params }: { params: Promise<{ 
             />
             <h3 className={styles.productName}>{product.name}</h3>
             <p className={styles.productPrice}>${product.price}</p>
-            {/* Aquí puedes añadir un botón "View Product" si quieres */}
           </div>
         ))}
       </div>

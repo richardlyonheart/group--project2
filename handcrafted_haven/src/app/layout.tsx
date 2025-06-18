@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={merriweather.variable}>
       <body>
-        <AuthProvider> {/* Envuelve el contenido con AuthProvider */}
+        <AuthProvider> 
           <Header />
           <main>{children}</main>
           <Footer />

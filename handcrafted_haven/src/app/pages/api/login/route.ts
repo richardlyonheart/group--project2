@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Missing credentials' }, { status: 400 });
     }
 
-    // Asegúrate de seleccionar el 'id' del usuario
+    
     const query = "SELECT id, email, password, name, user_choice FROM users WHERE email = $1";
     const result = await pool.query(query, [email]);
     const user = result.rows[0];
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     });
 
     console.log('Usuario logueado:', user.email);
-    // Devuelve el id del usuario en la respuesta
+    
     return NextResponse.json({ message: 'Logged in successfully', user: { id: user.id, email: user.email, name: user.name, user_choice: user.user_choice } }, { status: 200 });
 
   } catch (error) {

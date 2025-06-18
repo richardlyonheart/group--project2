@@ -41,7 +41,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={styles.formContainer}> {/* Renombré la clase principal */}
+    <div className={styles.formContainer}>
       <h1 className={styles.title}>Contact Us</h1>
       <p className={styles.subtitle}>We'd love to hear from you!</p>
       <form className={styles.form} onSubmit={handleSubmit}>

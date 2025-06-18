@@ -3,7 +3,7 @@
   max-width: 1000px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #ebfcfb; /* Fondo claro */
+  background-color: #ebfcfb;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -88,7 +88,7 @@
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  text-decoration: none; /* Para el Link */
+  text-decoration: none; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,7 +181,7 @@
 }
 
 .deleteButton {
-  background-color: #e74c3c; /* Rojo para eliminar */
+  background-color: #e74c3c; 
   color: white;
 }
 
