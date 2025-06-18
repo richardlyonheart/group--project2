@@ -18,6 +18,8 @@ interface Product {
   stock: number;
 }
 
+const formatPrice = (price: any) => `$${parseFloat(price || '0').toFixed(2)}`;
+
 export default function SellerDashboardPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
@@ -111,7 +113,7 @@ export default function SellerDashboardPage() {
                 className={styles.productImage}
               />
               <h3 className={styles.productName}>{product.name}</h3>
-              <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
+              <p className={styles.productPrice}>{formatPrice(product.price)}</p>
               <div className={styles.productActions}>
                 <button className={styles.editButton}>Edit</button>
                 <button className={styles.deleteButton}>Delete</button>
