@@ -87,7 +87,7 @@ export default function SellerDashboardPage() {
         <button className={styles.editProfileButton}>Edit Profile</button>
       </div>
 
-      <h2 className={styles.productsTitle}>Your Products</h2>
+      <h2 className={styles.productsTitle}>My Products</h2>
       <div className={styles.actionButtons}>
         <Link href="../profile/seller/add-product" className={styles.addProductButton}>
           Add New Product
