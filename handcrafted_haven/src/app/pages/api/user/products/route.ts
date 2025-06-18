@@ -41,3 +41,35 @@ export async function GET(request: Request) {
     return NextResponse.json({ message: 'Something went wrong' }, { status: 500 });
   }
 }
+export async function POST(request: Request) {
+  try {
+    const sessionToken = (await cookies()).get('sessionToken')?.value;
+    if (!sessionToken) {
+      return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    }
+
+    const userQuery = "SELECT id, user_choice FROM users WHERE email = $1";
+    const userResult = await pool.query(userQuery, [sessionToken]);
+    const user = userResult.rows[0];
+
+    if (!user || user.user_choice !== 'seller') {
+      return NextResponse.json({ message: 'Forbidden: Not a seller or user not found' }, { status: 403 });
+    }
+
+    const body = await request.json(); // Parse JSON from request body
+    const { name, description, price, imageUrl, category, stock } = body;
+
+    const insertQuery = `
+      INSERT INTO products (name, description, price, image_url, category, stock, seller_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
+    `;
+    const insertResult = await pool.query(insertQuery, [name, description, price, imageUrl, category, stock, user.id]);
+    const newProduct = insertResult.rows[0];
+
+    return NextResponse.json({ success: true, product: newProduct }, { status: 201 });
+
+  } catch (error) {
+    console.error('Error adding product:', error);
+    return NextResponse.json({ message: 'Server error' }, { status: 500 });
+  }
+}

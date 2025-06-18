@@ -28,7 +28,7 @@ export default function Header() {
           <Link href="/artisans" className={styles.link}>Artisans</Link>
           <Link href="/contact" className={styles.link}>Contact</Link>
           {user && user.user_choice === 'seller' && (
-            <Link href="/seller/add-product" className={styles.link}>
+            <Link href="/profile/seller/add-product" className={styles.link}>
               Add Product
             </Link>
           )}

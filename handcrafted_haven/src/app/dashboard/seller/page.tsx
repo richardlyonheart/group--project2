@@ -18,6 +18,8 @@ interface Product {
   stock: number;
 }
 
+const formatPrice = (price: any) => `$${parseFloat(price || '0').toFixed(2)}`;
+
 export default function SellerDashboardPage() {
   const { user, isLoading } = useAuth();
   const router = useRouter();
@@ -87,7 +89,7 @@ export default function SellerDashboardPage() {
 
       <h2 className={styles.productsTitle}>Your Products</h2>
       <div className={styles.actionButtons}>
-        <Link href="/seller/add-product" className={styles.addProductButton}>
+        <Link href="../profile/seller/add-product" className={styles.addProductButton}>
           Add New Product
         </Link>
         {/* El botón de eliminar producto general se implementaría después de la selección */}
@@ -111,7 +113,7 @@ export default function SellerDashboardPage() {
                 className={styles.productImage}
               />
               <h3 className={styles.productName}>{product.name}</h3>
-              <p className={styles.productPrice}>${product.price.toFixed(2)}</p>
+              <p className={styles.productPrice}>{formatPrice(product.price)}</p>
               <div className={styles.productActions}>
                 <button className={styles.editButton}>Edit</button>
                 <button className={styles.deleteButton}>Delete</button>
